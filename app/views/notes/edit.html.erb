@@ -1,0 +1,17 @@
+<div class = "well">
+<h1>Edit Your Trip Notes Post</h1>
+<%= form_tag "/notes/#{@note.id}/edit", method: :post %>
+<div>Title:</div>
+<input type="text" name = "title" value = "<%= @note.title %>">
+<div>Destination:</div>
+<input type="text" name = "destination" value = "<%= @note.destination %>">
+<div>Length</div>
+<input type="text" name = "length" value = "<%= @note.length %>">
+<div>Season:</div>
+<input type="text" name = "season" value = "<%= @note.season %>">
+<div>Report:</div>
+<textarea name="text" cols="50" rows="10"><%= @note.text %></textarea>
+<div>
+<input type = "submit" value = "Submit">
+</div>
+</div>

@@ -1,0 +1,15 @@
+<h1 class = "text-center"> Trip Reports Index Page</h1>
+<% @notes.each do |note| %>
+<div class = "well">
+<h3><a href = "/notes/<%= note.id %>"><%= note.title %></h3></a>
+<h6>Destination: <%= note.destination %></h6>
+<h6>Length: <%= note.length %></h6>
+</div>
+<% end %>
+
+<%= button_to "Add Trip Notes", "/notes/new", method: :get %><br>
+<% if current_user %>
+<%= button_to "Sign Out", "/users/sign_out", method: :delete %>
+<% else %>
+<%= button_to "Sign In", "/users/sign_in", method: :get %>
+<% end %>
