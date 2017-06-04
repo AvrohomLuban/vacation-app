@@ -1,0 +1,5 @@
+<h1>Add A comment</h1>
+<%= form_tag "add/#{@note.id}/new", method: :post do %>
+  Comment: <input type="text" name = "comment">
+  <input type = "submit" value = "Add Comment">
+  <% end %>

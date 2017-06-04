@@ -1,12 +1,13 @@
 class NotesController < ApplicationController
 
 def index
-    @notes = Note.all
+    @notes = Note.all.order(:rating => "desc")
     render "index.html.erb"
   end
 
   def show
     @note = Note.find_by(id: params[:id])
+    @comments = Comment.where(note_id: @note.id)
     render "show.html.erb"
   end
 

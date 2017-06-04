@@ -1,9 +1,18 @@
 <h1 class = "text-center"> Trip Reports Index Page</h1>
 <% @notes.each do |note| %>
 <div class = "well">
-<h3><a href = "/notes/<%= note.id %>"><%= note.title %></h3></a>
+<div class = "row">
+<div class = "col-md-4">
+<h3><a href = "/notes/<%= note.id %>"><%= note.title %></a></h3>
 <h6>Destination: <%= note.destination %></h6>
 <h6>Length: <%= note.length %></h6>
+</div>
+<div class = "col-md-8">
+<% note.images.each do |image| %>
+  <img class = "indexpic" src = "<%= image.url %>">
+  <% end %>
+</div>
+</div>
 </div>
 <% end %>
 

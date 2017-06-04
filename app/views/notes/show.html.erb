@@ -1,7 +1,46 @@
+<div id = "tripbox">
 <div class = "well">
-<h1 class = "text-center"><%= @note.title %></h1>
-<h2><%= @note.destination %></h2>
-<h2><%= @note.length %></h2>
-<h4><%= @note.season %></h4>
-<p><%= @note.text %></p>
+<h1 class = "text-center reportheader"><%= @note.title %></h1>
+<h2 class = "text-center reportdestination"><%= @note.destination %></h2>
+<h3 class = "reportlength"><%= @note.length %>
+(<%= @note.season %>)</h3>
+<p class = "reporttext"><%= @note.text %></p>
+<div class = "row">
+<% @note.images.each do |image| %>
+<div class = "col-md-6">
+<img class = "showpageimage" src = "<%= image.url %>">
 </div>
+<% end %>
+</div>
+</div>
+
+<div id = "rate">
+<%= form_tag "/vote/#{@note.id}/rating", method: :post do %>
+  <label for="points">Rate This Trip:</label>
+  <input type="range" data-show-value="true" name="rating" id="points" value="50" min="0" max="100">
+  <input type = "submit" value = "Vote">
+<% end %>
+</div>
+
+
+<div class = "well">
+<h4>Comments:</h4>
+<% @comments.each_with_index do |comment, index| %>
+<b><%= index + 1 %></b>
+<h6 class = "commenttime"><%= comment.created_at.strftime("%b %e, %l:%M %p") %><br></h6>
+<%= comment.text %><br><br>
+<% end %>
+
+<h4>Add A comment</h4>
+<%= form_tag "/comments/#{@note.id}/new", method: :post do %>
+  Comment: <input type="text" name = "comment">
+  <input type = "submit" value = "Add Comment">
+  <% end %>
+
+</div>
+
+<%= button_to "Add Images", "/images/#{@note.id}/new", method: :get %>
+
+
+</div>
+

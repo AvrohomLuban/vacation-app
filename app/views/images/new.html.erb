@@ -1,0 +1,7 @@
+<h1>Add Images To Your Trip Report</h1>
+
+<%= form_tag "/images/#{@note.id}/new", method: :post do %>
+  <div>Image Url:</div>
+  <input type="text" name = "url">
+  <input type = "submit" value = "Add Image">
+  <% end %>

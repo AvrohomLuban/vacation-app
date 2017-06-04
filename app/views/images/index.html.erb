@@ -1,0 +1,14 @@
+<h1>Browse By Images</h1>
+<h3>Click on any image below to go to images trip report</h3>
+
+<% @images.each_slice(3) do |three_images| %>
+<div class = "row">
+<% three_images.each do |image| %>
+<div class = "col-md-4">
+<div class = "well imageindex">
+<a href = "/notes/<%= image.note.id %>"><img src = "<%= image.url %>"></a>
+</div>
+</div>
+<% end %>
+</div>
+<% end %>
