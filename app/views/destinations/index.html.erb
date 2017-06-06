@@ -1,0 +1,14 @@
+<h1 class = "text-center">Browse By Destination</h1>
+
+<% @location.each_slice(3) do |three_location| %>
+<div class = "row">
+<% three_location.each do |location| %>
+<div class = "col-md-4">
+<div class = "well">
+<h3 class = "text-center"><a href = "/notes/?destination=<%= location.destination%>"><%= location.destination %></h3></a>
+<img src = "<%= location.notes.first.images.first.url %>">
+</div>
+</div>
+<% end %>
+</div>
+<% end %>

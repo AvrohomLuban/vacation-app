@@ -4,7 +4,9 @@
 <h2 class = "text-center reportdestination"><%= @note.destination %></h2>
 <h3 class = "reportlength"><%= @note.length %>
 (<%= @note.season %>)</h3>
-<p class = "reporttext"><%= @note.text %></p>
+<!-- <p class = "reporttext"><%= @note.text %></p> -->
+<p class = "show<%= @font %>">
+<%= @note.text %></p></p></p>
 <div class = "row">
 <% @note.images.each do |image| %>
 <div class = "col-md-6">

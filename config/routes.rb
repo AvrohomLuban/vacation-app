@@ -17,8 +17,6 @@ Rails.application.routes.draw do
     get "/notes/:id/edit", to: 'notes#edit'
     post "/notes/:id/edit", to: 'notes#update'
 
-    get "/notes/destination/:id", to: 'destination#index'
-
     post "/vote/:id/good", to: 'vote#good'
     post "vote/:id/bad", to: 'vote#bad'
     post "vote/:id/rating", to: 'vote#rating'
@@ -30,5 +28,7 @@ Rails.application.routes.draw do
     post "/comments/:id/new", to: 'comments#create'
 
     get "/images", to: 'images#index'
+
+    get "/bydestination", to: 'destinations#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
